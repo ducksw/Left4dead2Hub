@@ -41,7 +41,10 @@
       <tbody>
         {{#each steam}}
           <tr style="border-top: 1px solid #222;">
-            <td style="text-align: center; padding: 10px; {{#ifCond @index '<' 4}}border-left: 4px solid #448aff;{{/ifCond}}">
+            <td style="text-align: center; padding: 10px;
+              {{#ifCond @index '<' 4}}border-left: 4px solid #448aff;{{/ifCond}}
+              {{#ifEquals @index 4}}border-left: 4px solid orange;{{/ifEquals}}
+              {{#ifBetween @index 7 10}}border-left: 4px solid red;{{/ifBetween}}">
               {{inc @index}}
             </td>
             <td style="padding: 10px;">{{this.displayName}}</td>
@@ -75,7 +78,8 @@
       <div class="legend-section">
         <span class="fs-5">Ascenso</span>
         <ul>
-          <span class="dot blue"></span>Fase de grupos de la Champions Bulls
+          <span class="dot blue"></span>Fase de grupos de la Champions Bulls<br/><br/>
+          <span class="dot orange"></span>Repechaje Fase de grupos Champions bulls
           <!-- <li><span class="dot orange"></span>Fase de grupos de Premier League Bulls</li> -->
           <!-- <li><span class="dot green"></span>Clasificados en Liga Conferencia</li> -->
           <!-- <li><span class="dot red"></span>Descenso</li> -->

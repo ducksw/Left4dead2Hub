@@ -5,6 +5,10 @@ dotenv.config();
 
 const connectDB = async () => {
   try {
+    /*
+      [MONGO] ES PARA LA WEB EN PRODUCCION
+      [LOCALHOST] ES LOCAL
+    */
     await mongoose.connect(process.env.MONGO, {
       useNewUrlParser: true,
       useUnifiedTopology: true

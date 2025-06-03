@@ -35,6 +35,21 @@ hbs.registerHelper('ifCond', function(v1, operator, v2, options) {
   }
 });
 
+hbs.registerHelper('ifBetween', function(index, min, max, options) {
+  if (index >= min && index <= max) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
+hbs.registerHelper('ifEquals', function(a, b, options) {
+  if (a === b) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
 
 // ### CONFIG HBS ###
 hbs.registerPartials(path.join(__dirname, '/views/partials'), function () {});

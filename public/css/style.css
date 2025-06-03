@@ -101,6 +101,10 @@ nav div a:hover {
   background-color: #448aff;
 }
 
+.orange {
+  background-color: orange;
+}
+
 .dot,
 .circle {
   display: inline-block;
