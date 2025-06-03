@@ -14,7 +14,7 @@ ps.CreatePost = async (req, res) => {
     await newPost.save();
 
     console.log(post);
-    res.status(201).send("POST CREADO");
+    res.redirect('/panel/post');
   } catch (error) {
     res.status(500).send("Error al crear el post: " + error.message);
   }
