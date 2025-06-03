@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PANEL DE ADMIN</title>
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+a {
+  text-decoration: none;
+  background-color: red;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  width: 12%;
+  text-align: center;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  gap: 10px;
+}
+</style>
+</head>
+
+<body>
+<h1>PANEL DE ADMIN OSIII</h1>
+
+<br />
+<a href="/home" style="background-color: purple;">Volver al Home</a>
+<br/><br/>
+<main>
+  <a href="/panel/createPlayer">Agregar Jugador</a>
+  <a href="/panel/edit">Editar Jugador</a>
+  <a href="/panel/post">Crear Post</a>
+
+</main>
+<br />
+<img src="https://i.pinimg.com/564x/b1/92/c7/b192c70d750d0700becf81b1ccc9e2a6.jpg">
+
+<script>
+function login() {
+  const ducksId = "ducks";
+  const aldoId = "Rulosin Mamada";
+  const url = "http://localhost:3000/home";
+  const password = "admin123";
+
+  if (localStorage.getItem("isAdmin") === "true") {
+    console.log("Ya has iniciado sesión como admin");
+    return;
+  }
+
+  let log = prompt("Ingresa tu nombre de steam");
+  let pass = prompt("Password");
+
+  console.log(log);
+
+  if ((log === ducksId || log === aldoId) && pass === password) {
+    console.log("Eres admin");
+    localStorage.setItem("isAdmin", "true");
+  } else {
+    window.location.href = url;
+  }
+}
+
+login()
+
+</script>
+</body>
+
+</html>
