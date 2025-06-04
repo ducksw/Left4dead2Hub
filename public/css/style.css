@@ -101,6 +101,11 @@ nav div a:hover {
   background-color: #448aff;
 }
 
+.red {
+  background-color: red;
+}
+
+
 .orange {
   background-color: orange;
 }
