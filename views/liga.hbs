@@ -18,7 +18,7 @@
   <div class="d-flex align-items-center justify-content-between">
     <span class="text-light fs-4"><b>Liga Bulls</b></span>
     <div>
-      <a href="" class="btn btn-dark p-2 rounded text-decoration-none text-danger focus-ring focus-ring-secondary">Descargar Stats</a>
+      <a href="#" class="btn btn-dark p-2 rounded text-decoration-none text-danger focus-ring focus-ring-secondary" id="download-stats">Descargar Stats</a>
       <a href="" class="btn btn-dark p-2 rounded text-decoration-none text-danger focus-ring focus-ring-secondary" onclick="champions()">Champions Bulls</a>
       <a href="" class="btn btn-dark p-2 rounded text-decoration-none text-danger focus-ring focus-ring-secondary" onclick="aea()">Ver matchs</a>
     </div>
@@ -27,7 +27,7 @@
 
 <section class="bg bg-black p-2 mt-3 border border-dark rounded sec">
   <div class="tab4" style="overflow: auto;">
-    <table style="width:100%; border-collapse: collapse; background-color: #111; color: white;">
+    <table style="width:100%; border-collapse: collapse; background-color: #111; color: white;" id="liga">
       <thead>
         <tr style="background-color: #000;">
           <th style="padding: 10px; border: 1px solid #222;">#</th>
@@ -97,6 +97,7 @@
     </div>
 </section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 
 function champions(e) {
@@ -109,6 +110,32 @@ function aea(e) {
   alert("En proceso...");
   e.preventDefault()
 }
+
+function capture() {
+  const div = document.getElementById("liga");
+  const date = new Date().toISOString().slice(0,10);
+
+  setTimeout(() => {
+    html2canvas(div, {
+      useCORS: true,
+      allowTaint: false,
+      scale: 2
+    }).then(canvas => {
+      const imgURL = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = imgURL;
+      link.download = `stats_${date}.png`
+      link.click();
+    });
+  }, 500)
+}
+
+
+document.getElementById("download-stats").addEventListener('click', function(e) {
+  e.preventDefault();
+  capture();
+});
+
 </script>
 </body>
 </html>
