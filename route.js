@@ -15,6 +15,10 @@ router.get('/panel', (req, res) => {
   res.render('admin/main');
 });
 
+router.get('/settings', (req, res) => {
+  res.render('settings');
+});
+
 // main
 router.get('/home', MAIN.index);
 
