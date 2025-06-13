@@ -70,14 +70,14 @@ adm.editViewPost = async (req, res) => {
 
 adm.viewOnePost = async (req, res) => {
   const post = await Post.findOne({ _id: req.params.id });
-  res.render('admin/editpost', { post });
+  res.render('admin/editPost', { post });
 }
 
 adm.editPost = async (req, res) => {
   const post = await Post.findOne({ _id: req.params.id });
   const updatePost = await Post.findByIdAndUpdate(post._id, req.body, { new: true });
 
-  res.render('admin/editpost', { post: updatePost });
+  res.render('admin/editPost', { post: updatePost });
 }
 
 export default adm;
