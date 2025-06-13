@@ -1,10 +1,13 @@
 import Steam from '../models/UserSteamModels.js';
+import Post from '../models/PostModels.js';
 
 const adm = {}
 
 adm.index = async (req ,res) => {
   res.render("admin/player");
 }
+
+// Crear player
 
 adm.create = async (req, res) => {
   const player = req.body;
@@ -20,16 +23,17 @@ adm.create = async (req, res) => {
   }
 }
 
-adm.viewOnePlayer = async (req, res) => {
-  const user = await Steam.findOne({ steamId: req.params.id });
-  res.render('admin/editPlayer', { user });
-}
+// editar player
 
 adm.editView = async (req, res) => {
   const users = await Steam.find();
 
-  console.log(users);
   res.render('admin/viewPlayer', { users });
+}
+
+adm.viewOnePlayer = async (req, res) => {
+  const user = await Steam.findOne({ steamId: req.params.id });
+  res.render('admin/editPlayer', { user });
 }
 
 adm.editPlayer = async (req, res) => {
@@ -38,6 +42,8 @@ adm.editPlayer = async (req, res) => {
 
   res.render('admin/editPlayer', { user: updatedUser });
 }
+
+// ver los admins
 
 adm.viewAdmin = async (req, res) => {
   //const admins = await Steam.find({ isAdmin: true });
@@ -50,8 +56,28 @@ adm.viewAdmin = async (req, res) => {
     admin = await Steam.find();
   }
 
-
   res.render('admins', { search, admin });
+}
+
+// edit post
+
+adm.editViewPost = async (req, res) => {
+  // ver todos los posts
+  const posts = await Post.find();
+  posts.reverse();
+  res.render('admin/viewPost', { posts }); 
+}
+
+adm.viewOnePost = async (req, res) => {
+  const post = await Post.findOne({ _id: req.params.id });
+  res.render('admin/editpost', { post });
+}
+
+adm.editPost = async (req, res) => {
+  const post = await Post.findOne({ _id: req.params.id });
+  const updatePost = await Post.findByIdAndUpdate(post._id, req.body, { new: true });
+
+  res.render('admin/editpost', { post: updatePost });
 }
 
 export default adm;

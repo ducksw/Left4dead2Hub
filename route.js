@@ -21,6 +21,7 @@ router.get('/settings', (req, res) => {
 
 // main
 router.get('/home', MAIN.index);
+router.get('/api', PLAYER.api);
 
 // admins
 router.get('/panel/post', POST.index);
@@ -33,6 +34,12 @@ router.get('/panel/edit', ADMIN.editView);
 router.get('/panel/edit/:id', ADMIN.viewOnePlayer);
 router.post('/panel/edit/:id', ADMIN.editPlayer);
 
+// edit post
+
+router.get('/panel/editPost', ADMIN.editViewPost);
+router.get('/panel/editPost/:id', ADMIN.viewOnePost);
+router.post('/panel/editPost/:id', ADMIN.editPost);
+
 // players
 router.get('/stats', PLAYER.stats);
 router.get('/liga', PLAYER.champions);
@@ -41,6 +48,7 @@ router.get('/admin', ADMIN.viewAdmin);
 
 // posts
 router.get('/noticias', POST.viewPostAll);
+router.get('/apiPost', POST.apiPost);
 
 export default (app) => {
   app.use(router);

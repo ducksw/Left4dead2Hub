@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>List post</title>
+<style>
+
+body {
+  font-family: sans-serif;
+}
+
+main {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  width: 50%;
+}
+
+#a {
+  background-color: brown;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+}
+a { background-color: red; padding: 10px; border-radius: 10px; color: white; }
+</style>
+
+</head>
+
+<body>
+
+<h1>TODOS LOS POSTS</h1>
+
+<a href="/panel" class="bg bg-dark p-2 rounded">VOLVER</a>
+<br/><br/>
+<main>
+{{#each posts}}
+  <a id="a" href="/panel/editPost/{{_id}}">{{this.title}}</a>
+{{/each}}
+</main>
+</body>
+</html>

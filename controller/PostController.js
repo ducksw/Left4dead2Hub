@@ -27,4 +27,9 @@ ps.viewPostAll = async (req, res) => {
   res.render('noticias', { posts });
 }
 
+ps.apiPost = async(req, res) => {
+  const posts = await Post.find();
+  res.json({posts: posts});
+}
+
 export default ps; 
