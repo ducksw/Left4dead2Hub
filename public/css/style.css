@@ -110,6 +110,10 @@ nav div a:hover {
     border-radius: 50%;
 }
 
+.green {
+    background-color: green;
+}
+
 .blue {
     background-color: #448aff;
 }

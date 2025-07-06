@@ -37,6 +37,13 @@ const configuration = async () => {
       return options.inverse(this);
     }
   });
+
+  hbs.registerHelper('ifRange', function (index, min, max, options) {
+  if (index >= min && index <= max) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 }
 
 export default configuration; 

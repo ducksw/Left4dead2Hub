@@ -43,7 +43,8 @@
         <tr style="border-top: 1px solid #222;">
           <td style="text-align: center; padding: 10px;
                      {{#ifCond @index '<' 4}}border-left: 4px solid #448aff;{{/ifCond}}
-                     {{#ifEquals @index 4}}border-left: 4px solid orange;{{/ifEquals}}
+                     {{#ifEquals @index 4}}border-left: 4px solid darkgreen;{{/ifEquals}}
+                     {{#ifRange @index 5 8}}border-left: 4px solid orange;{{/ifRange}}
                      {{#ifLastFour @index ../steam.length}}border-left: 4px solid red;{{/ifLastFour}}">
             {{inc @index}}
           </td>
@@ -79,7 +80,8 @@
         <span class="fs-5">Ascenso</span>
         <ul>
           <span class="dot blue"></span>Fase de grupos de la Champions Bulls<br/><br/>
-          <span class="dot orange"></span>Repechaje Fase de grupos Champions bulls<br/><br/>
+          <span class="dot green"></span>Play Off Champions Bulls<br/><br/>
+          <span class="dot orange"></span>Fase de grupos Marquez League<br/><br/>
           <span class="dot red"></span>Descenso
           <!-- <li><span class="dot orange"></span>Fase de grupos de Premier League Bulls</li> -->
           <!-- <li><span class="dot green"></span>Clasificados en Liga Conferencia</li> -->
